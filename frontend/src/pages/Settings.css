@@ -1,0 +1,83 @@
+.settings-page {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  padding: 2rem 0;
+}
+
+.settings-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  background: linear-gradient(180deg, rgba(5, 8, 16, 0.9) 0%, rgba(5, 8, 16, 0.94) 100%),
+    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80') center/cover no-repeat;
+  z-index: -1;
+}
+
+.settings-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.settings-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.settings-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.settings-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.theme-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.theme-options button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.theme-options button:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.theme-options button.active {
+  background: rgba(0, 229, 176, 0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.settings-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}

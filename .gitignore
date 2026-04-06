@@ -1,0 +1,15 @@
+node_modules/
+.env
+*.log
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.pth
+uploads/*
+!uploads/.gitkeep
+datasets/*
+!datasets/.gitkeep
+.DS_Store
+dist/
+build/

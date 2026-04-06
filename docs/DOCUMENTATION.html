@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satellite Intelligence Platform — Project Documentation v1.0</title>
+  <style>
+    @page { size: A4; margin: 1.5cm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 11pt; line-height: 1.5; color: #1a2332; max-width: 210mm; margin: 0 auto; padding: 15mm; background: #fff; }
+    .cover { text-align: center; padding: 40px 0; page-break-after: always; }
+    .confidential { font-size: 9pt; letter-spacing: 0.15em; color: #5a6d82; margin-bottom: 2rem; }
+    .cover h1 { font-size: 1.6rem; font-weight: 700; margin: 1rem 0; letter-spacing: 0.02em; }
+    .cover .subtitle { font-size: 12pt; letter-spacing: 0.12em; color: #141e2e; margin: 0.5rem 0; }
+    .cover .meta { font-size: 10pt; color: #5a6d82; margin-top: 2rem; }
+    .cover .meta span { display: inline-block; margin: 0 0.5rem; }
+    .toc { page-break-after: always; }
+    .toc h2 { font-size: 13pt; margin-bottom: 1rem; font-weight: 700; }
+    .toc ol { list-style: none; }
+    .toc li { display: flex; margin: 0.35rem 0; font-size: 10.5pt; }
+    .toc .num { width: 2.5em; font-weight: 600; }
+    h2 { font-size: 12pt; font-weight: 700; margin: 1.5rem 0 0.75rem; padding-bottom: 0.25rem; border-bottom: 1px solid #c5d2e0; page-break-after: avoid; }
+    h3 { font-size: 11pt; font-weight: 600; margin: 1rem 0 0.5rem; page-break-after: avoid; }
+    p { margin-bottom: 0.6rem; }
+    ul, ol { margin: 0.4rem 0 0.8rem 1.5rem; }
+    li { margin-bottom: 0.25rem; }
+    table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 10pt; page-break-inside: avoid; }
+    th, td { border: 1px solid #b0bcc8; padding: 0.45rem 0.6rem; text-align: left; }
+    th { background: #e8eef4; font-weight: 600; }
+    tr:nth-child(even) { background: #f8fafc; }
+    code { background: #e8eef4; padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 9.5pt; }
+    pre { background: #0d1520; color: #e8eef4; padding: 0.75rem 1rem; border-radius: 6px; overflow-x: auto; margin: 0.6rem 0; font-size: 9.5pt; line-height: 1.4; }
+    .ascii-box { font-family: Consolas, Monaco, monospace; font-size: 9pt; background: #f0f4f8; padding: 1rem; border: 1px solid #c5d2e0; border-radius: 4px; margin: 0.75rem 0; white-space: pre; overflow-x: auto; }
+    .page-break { page-break-before: always; }
+    .stat-row { display: flex; gap: 1.5rem; margin: 1rem 0; flex-wrap: wrap; }
+    .stat-box { padding: 0.6rem 1rem; background: #e8eef4; border: 1px solid #c5d2e0; border-radius: 6px; font-weight: 600; font-size: 10pt; }
+    .footer { margin-top: 2rem; padding-top: 0.5rem; border-top: 1px solid #c5d2e0; font-size: 9pt; color: #5a6d82; }
+    @media print {
+      body { padding: 0; }
+      .cover { padding: 20px 0; }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="confidential">C O M P R E H E N S I V E  P R O J E C T  D O C U M E N T A T I O N</div>
+  <h1>SATELLITE INTELLIGENCE</h1>
+  <h1>PLATFORM</h1>
+  <div class="subtitle">AI-POWERED REMOTE SENSING & IMAGE ANALYSIS</div>
+  <div class="meta">
+    <span><strong>VERSION 1.0</strong></span>
+    <span>|</span>
+    <span>MARCH 2025</span>
+  </div>
+</div>
+
+<div class="toc">
+  <h2>TABLE OF CONTENTS</h2>
+  <ol>
+    <li><span class="num">01</span> Executive Summary</li>
+    <li><span class="num">02</span> System Architecture</li>
+    <li><span class="num">03</span> Technology Stack</li>
+    <li><span class="num">04</span> Backend API Reference</li>
+    <li><span class="num">05</span> AI / ML Engine</li>
+    <li><span class="num">06</span> Frontend Application</li>
+    <li><span class="num">07</span> Complete Feature Inventory</li>
+    <li><span class="num">08</span> Page-by-Page Reference</li>
+    <li><span class="num">09</span> Authentication &amp; Security</li>
+    <li><span class="num">10</span> Installation &amp; Deployment Guide</li>
+    <li><span class="num">11</span> Configuration Reference</li>
+    <li><span class="num">12</span> Data Flow Architecture</li>
+    <li><span class="num">13</span> Export Capabilities</li>
+    <li><span class="num">14</span> Dependencies &amp; Licenses</li>
+    <li><span class="num">15</span> Future Roadmap</li>
+    <li><span class="num">16</span> Support &amp; Contact</li>
+  </ol>
+</div>
+
+<h2>01 EXECUTIVE SUMMARY</h2>
+<p>The Satellite Intelligence Platform is a full-stack, AI-powered remote sensing and image analysis web application. It provides land cover classification (10 EuroSAT classes via ResNet18), object detection (YOLOv8), AI chatbot explanations (OpenAI GPT), and an admin dashboard with authentication.</p>
+<div class="stat-row">
+  <span class="stat-box">10 FRONTEND PAGES</span>
+  <span class="stat-box">7 API ENDPOINTS</span>
+  <span class="stat-box">35+ FEATURES</span>
+</div>
+<table>
+  <thead><tr><th>CAPABILITY</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>Land Cover Classification</td><td>10 EuroSAT classes using ResNet18 CNN</td></tr>
+    <tr><td>Object Detection</td><td>YOLOv8 for bounding boxes on imagery</td></tr>
+    <tr><td>AI Chatbot</td><td>GPT explains analysis results via OpenAI</td></tr>
+    <tr><td>Batch Upload</td><td>Multiple images, sequential processing with progress</td></tr>
+    <tr><td>Analysis History</td><td>localStorage persistence, thumbnail view</td></tr>
+    <tr><td>Multi-Format Export</td><td>JSON, CSV, PDF reports; PNG annotated image download</td></tr>
+    <tr><td>Theme Toggle</td><td>Dark/Light mode with persistence</td></tr>
+    <tr><td>Admin Dashboard</td><td>JWT auth, upload stats, file listing</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">02 SYSTEM ARCHITECTURE</h2>
+<p>Three-tier architecture: Frontend (React SPA) → Backend (Express API) → AI Service (FastAPI).</p>
+<div class="ascii-box">┌─────────────────────────────────────────────────────────────┐
+│  CLIENT LAYER                                              │
+│  React 18 + Vite + Recharts + Framer Motion                │
+│  Vite Dev Server (:5173)                                   │
+└──────────────────────┬────────────────────────────────────┘
+                       │ HTTP (axios)
+                       ▼
+┌─────────────────────────────────────────────────────────────┐
+│  APPLICATION LAYER                                          │
+│  Node.js + Express REST API (:5000)                         │
+│  /api/analyze | /api/chat | /api/auth | /api/admin          │
+└───────────────────────┬────────────────────────────────────┘
+                        │ HTTP proxy
+                        ▼
+┌─────────────────────────────────────────────────────────────┐
+│  AI SERVICE LAYER                                           │
+│  Python FastAPI + uvicorn (:8000)                           │
+│  PyTorch ResNet18 | YOLOv8                                  │
+└─────────────────────────────────────────────────────────────┘</div>
+<table>
+  <thead><tr><th>SOURCE</th><th>DESTINATION</th><th>PROTOCOL</th><th>PURPOSE</th></tr></thead>
+  <tbody>
+    <tr><td>Frontend (:5173)</td><td>Express (:5000)</td><td>HTTP/REST</td><td>Analyze, chat, auth</td></tr>
+    <tr><td>Express (:5000)</td><td>FastAPI (:8000)</td><td>HTTP POST</td><td>Image analysis proxy</td></tr>
+    <tr><td>Express (:5000)</td><td>OpenAI API</td><td>HTTPS</td><td>Chat completions</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">03 TECHNOLOGY STACK</h2>
+<h3>FRONTEND</h3>
+<table>
+  <thead><tr><th>TECHNOLOGY</th><th>VERSION</th><th>PURPOSE</th></tr></thead>
+  <tbody>
+    <tr><td>React</td><td>18.2.0</td><td>UI framework</td></tr>
+    <tr><td>Vite</td><td>5.4.11</td><td>Build &amp; dev server</td></tr>
+    <tr><td>React Router DOM</td><td>6.20.1</td><td>Client-side routing</td></tr>
+    <tr><td>Recharts</td><td>2.10.3</td><td>Charts (Bar, Line)</td></tr>
+    <tr><td>Framer Motion</td><td>10.16.4</td><td>Animations</td></tr>
+    <tr><td>Lucide React</td><td>0.294.0</td><td>Icons</td></tr>
+    <tr><td>Axios</td><td>1.6.2</td><td>HTTP client</td></tr>
+    <tr><td>jsPDF + jspdf-autotable</td><td>4.2.0 / 5.0.7</td><td>PDF export</td></tr>
+  </tbody>
+</table>
+<h3>BACKEND</h3>
+<table>
+  <thead><tr><th>TECHNOLOGY</th><th>PURPOSE</th></tr></thead>
+  <tbody>
+    <tr><td>Node.js + Express</td><td>REST API server</td></tr>
+    <tr><td>Multer</td><td>File upload handling</td></tr>
+    <tr><td>jsonwebtoken</td><td>JWT auth</td></tr>
+    <tr><td>bcryptjs</td><td>Password hashing</td></tr>
+    <tr><td>OpenAI</td><td>GPT API for chatbot</td></tr>
+  </tbody>
+</table>
+<h3>AI / ML</h3>
+<table>
+  <thead><tr><th>TECHNOLOGY</th><th>PURPOSE</th></tr></thead>
+  <tbody>
+    <tr><td>Python + FastAPI + uvicorn</td><td>ML inference API</td></tr>
+    <tr><td>PyTorch</td><td>ResNet18 land cover classifier</td></tr>
+    <tr><td>YOLOv8 (ultralytics)</td><td>Object detection</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">04 BACKEND API REFERENCE</h2>
+<p><strong>Base URL:</strong> http://localhost:5000</p>
+<h3>4.1 — HEALTH CHECK</h3>
+<p>GET <code>/api/health</code></p>
+<p>Response: <code>{"status":"ok"}</code></p>
+<h3>4.2 — IMAGE ANALYSIS</h3>
+<p>POST <code>/api/analyze</code></p>
+<p>Request: multipart/form-data, field <code>image</code></p>
+<p>Response: <code>classification</code>, <code>detections</code>, <code>annotated_image_base64</code></p>
+<h3>4.3 — CHATBOT</h3>
+<p>POST <code>/api/chat</code></p>
+<p>Request: <code>{"message","classification","detections"}</code></p>
+<p>Response: <code>{"reply":"..."}</code></p>
+<h3>4.4 — AUTH</h3>
+<table>
+  <thead><tr><th>METHOD</th><th>ENDPOINT</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>POST</td><td><code>/api/auth/login</code></td><td>Email + password → JWT</td></tr>
+    <tr><td>POST</td><td><code>/api/auth/verify</code></td><td>Verify JWT (Bearer header)</td></tr>
+  </tbody>
+</table>
+<h3>4.5 — ADMIN (Auth Required)</h3>
+<table>
+  <thead><tr><th>METHOD</th><th>ENDPOINT</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>GET</td><td><code>/api/admin/stats</code></td><td>Upload count, storage size</td></tr>
+    <tr><td>GET</td><td><code>/api/admin/uploads</code></td><td>List uploaded files</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">05 AI / ML ENGINE</h2>
+<table>
+  <thead><tr><th>PROPERTY</th><th>VALUE</th></tr></thead>
+  <tbody>
+    <tr><td>Classifier</td><td>ResNet18, EuroSAT 10 classes</td></tr>
+    <tr><td>Detector</td><td>YOLOv8 (ultralytics)</td></tr>
+    <tr><td>Model Path</td><td>ai-service/models/eurosat_model.pth</td></tr>
+  </tbody>
+</table>
+<h3>EUROSAT CLASSES</h3>
+<p>AnnualCrop, Forest, HerbaceousVegetation, Highway, Industrial, Pasture, PermanentCrop, Residential, River, SeaLake</p>
+<h3>ANALYSIS OUTPUT</h3>
+<table>
+  <thead><tr><th>FIELD</th><th>TYPE</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>classification</td><td>Array</td><td>[{class, probability}, ...]</td></tr>
+    <tr><td>detections</td><td>Array</td><td>[{class, confidence, bbox}, ...]</td></tr>
+    <tr><td>annotated_image_base64</td><td>String</td><td>Base64 PNG with boxes</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">06 FRONTEND APPLICATION</h2>
+<h3>ROUTING MAP</h3>
+<table>
+  <thead><tr><th>ROUTE</th><th>PROTECTED</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>/</td><td>No</td><td>Home landing</td></tr>
+    <tr><td>/upload</td><td>No</td><td>Analyze (single/batch)</td></tr>
+    <tr><td>/results</td><td>No</td><td>Prediction results</td></tr>
+    <tr><td>/history</td><td>No</td><td>Analysis history</td></tr>
+    <tr><td>/dashboard</td><td>No</td><td>Analytics charts</td></tr>
+    <tr><td>/chat</td><td>No</td><td>AI Chatbot</td></tr>
+    <tr><td>/settings</td><td>No</td><td>Theme settings</td></tr>
+    <tr><td>/help</td><td>No</td><td>Help &amp; FAQ</td></tr>
+    <tr><td>/login</td><td>No</td><td>Admin login</td></tr>
+    <tr><td>/admin</td><td>Yes</td><td>Admin dashboard</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">07 COMPLETE FEATURE INVENTORY</h2>
+<h3>CORE ANALYTICS (12)</h3>
+<table>
+  <thead><tr><th>#</th><th>FEATURE</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Image Upload</td><td>Single file, max 20MB</td></tr>
+    <tr><td>2</td><td>Batch Upload</td><td>Multiple images, sequential processing</td></tr>
+    <tr><td>3</td><td>Land Cover Classification</td><td>10-class bar chart</td></tr>
+    <tr><td>4</td><td>Object Detection</td><td>Annotated image with boxes</td></tr>
+    <tr><td>5</td><td>AI Insights Panel</td><td>Class-based insights &amp; recommendations</td></tr>
+    <tr><td>6</td><td>Grad-CAM Placeholder</td><td>UI for future interpretability</td></tr>
+    <tr><td>7</td><td>Classification List</td><td>Bar + percentage per class</td></tr>
+    <tr><td>8</td><td>Detections List</td><td>Class + confidence</td></tr>
+    <tr><td>9</td><td>Analytics Dashboard</td><td>Charts (accuracy, loss, F1, ROC)</td></tr>
+    <tr><td>10</td><td>AI Chatbot</td><td>OpenAI GPT explains results</td></tr>
+    <tr><td>11</td><td>Analysis History</td><td>localStorage, thumbnails</td></tr>
+    <tr><td>12</td><td>Export (JSON/CSV/PDF)</td><td>Download analysis data</td></tr>
+  </tbody>
+</table>
+<h3>USER EXPERIENCE (14)</h3>
+<table>
+  <thead><tr><th>#</th><th>FEATURE</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>13</td><td>Theme Toggle</td><td>Dark/Light, persisted</td></tr>
+    <tr><td>14</td><td>Toast Notifications</td><td>Success, error, info</td></tr>
+    <tr><td>15</td><td>Share Link</td><td>Copy results URL</td></tr>
+    <tr><td>16</td><td>Download Annotated</td><td>PNG of detection overlay</td></tr>
+    <tr><td>17</td><td>Admin Login</td><td>JWT authentication</td></tr>
+    <tr><td>18</td><td>Admin Stats</td><td>Upload count, storage</td></tr>
+    <tr><td>19</td><td>Admin Uploads List</td><td>File names, sizes, dates</td></tr>
+    <tr><td>20</td><td>Protected Routes</td><td>Admin requires auth</td></tr>
+    <tr><td>21</td><td>Framer Motion</td><td>Page animations</td></tr>
+    <tr><td>22</td><td>Responsive Layout</td><td>Mobile-friendly nav</td></tr>
+    <tr><td>23</td><td>Help Page</td><td>FAQ, getting started</td></tr>
+    <tr><td>24</td><td>Settings Page</td><td>Theme selection</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">08 PAGE-BY-PAGE REFERENCE</h2>
+<p><strong>HOME /</strong> — Hero, AI pipeline, research updates, sample land cover cards.</p>
+<p><strong>ANALYZE /upload</strong> — Drop zone, single/batch toggle, progress indicator, analyze button.</p>
+<p><strong>RESULTS /results</strong> — Original + annotated images, classification chart, insights, export/share/download, link to chatbot.</p>
+<p><strong>HISTORY /history</strong> — Grid of past analyses (thumbnail, top class, date), View Results, Clear All.</p>
+<p><strong>DASHBOARD /dashboard</strong> — Training accuracy, loss, class distribution, F1, ROC charts (demo data).</p>
+<p><strong>CHATBOT /chat</strong> — Message input, AI replies based on classification + detections context.</p>
+<p><strong>SETTINGS /settings</strong> — Theme (Dark/Light).</p>
+<p><strong>HELP /help</strong> — Features, FAQ.</p>
+<p><strong>LOGIN /login</strong> — Email + password form, redirect to admin.</p>
+<p><strong>ADMIN /admin</strong> — Stats cards, uploads table, logout.</p>
+
+<h2 class="page-break">09 AUTHENTICATION &amp; SECURITY</h2>
+<h3>ADMIN CREDENTIALS</h3>
+<table>
+  <thead><tr><th>EMAIL</th><th>PASSWORD</th><th>ROLE</th></tr></thead>
+  <tbody>
+    <tr><td>admin@satellite.local</td><td>admin123</td><td>Administrator</td></tr>
+  </tbody>
+</table>
+<h3>AUTH FLOW</h3>
+<p>Client submits credentials → POST /api/auth/login → JWT returned → localStorage (adminToken) → ProtectedRoute checks token → Admin page accessible.</p>
+<h3>SESSION</h3>
+<p>Storage: localStorage, key <code>adminToken</code>. Logout clears token. JWT expires in 7 days.</p>
+
+<h2 class="page-break">10 INSTALLATION &amp; DEPLOYMENT GUIDE</h2>
+<h3>PREREQUISITES</h3>
+<table>
+  <thead><tr><th>REQUIREMENT</th><th>VERSION</th></tr></thead>
+  <tbody>
+    <tr><td>Node.js</td><td>18+</td></tr>
+    <tr><td>Python</td><td>3.10+</td></tr>
+    <tr><td>OpenAI API Key</td><td>For chatbot</td></tr>
+  </tbody>
+</table>
+<h3>STEP 1 — AI SERVICE</h3>
+<pre>cd ai-service
+pip install -r requirements.txt
+uvicorn main:app --reload --host 0.0.0.0 --port 8000</pre>
+<h3>STEP 2 — BACKEND</h3>
+<pre>cd backend
+npm install
+# Set .env: PORT, AI_SERVICE_URL, OPENAI_API_KEY, ADMIN_EMAIL, ADMIN_PASSWORD, JWT_SECRET
+npm run dev</pre>
+<h3>STEP 3 — FRONTEND</h3>
+<pre>cd frontend
+npm install
+npm start</pre>
+<p><strong>Start order:</strong> 1) AI (8000), 2) Backend (5000), 3) Frontend (5173)</p>
+
+<h2 class="page-break">11 CONFIGURATION REFERENCE</h2>
+<h3>BACKEND .env</h3>
+<table>
+  <thead><tr><th>VARIABLE</th><th>DEFAULT</th><th>DESCRIPTION</th></tr></thead>
+  <tbody>
+    <tr><td>PORT</td><td>5000</td><td>Express port</td></tr>
+    <tr><td>AI_SERVICE_URL</td><td>http://127.0.0.1:8000</td><td>AI service URL</td></tr>
+    <tr><td>OPENAI_API_KEY</td><td>—</td><td>OpenAI key</td></tr>
+    <tr><td>ADMIN_EMAIL</td><td>admin@satellite.local</td><td>Admin login email</td></tr>
+    <tr><td>ADMIN_PASSWORD</td><td>admin123</td><td>Admin password</td></tr>
+    <tr><td>JWT_SECRET</td><td>—</td><td>JWT signing secret</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">12 DATA FLOW ARCHITECTURE</h2>
+<p><strong>ANALYSIS FLOW:</strong></p>
+<p>User selects image → POST /api/analyze (multipart) → Express receives → Multer saves to uploads/ → Proxy to FastAPI /analyze → Classifier + Detector run → Response (classification, detections, base64) → Frontend setAnalysis → Navigate to /results → Charts + insights render.</p>
+<p><strong>CHAT FLOW:</strong></p>
+<p>User sends message → POST /api/chat (message, classification, detections) → Express → OpenAI API → Reply returned → Display in chat.</p>
+<p><strong>HISTORY FLOW:</strong></p>
+<p>After successful analysis → addToHistory(analysis, imgDataUrl) → localStorage → History page reads and displays grid.</p>
+
+<h2 class="page-break">13 EXPORT CAPABILITIES</h2>
+<table>
+  <thead><tr><th>FORMAT</th><th>METHOD</th><th>OUTPUT</th></tr></thead>
+  <tbody>
+    <tr><td>JSON</td><td>Client-side</td><td>analysis-{timestamp}.json</td></tr>
+    <tr><td>CSV</td><td>Client-side</td><td>analysis-{timestamp}.csv</td></tr>
+    <tr><td>PDF</td><td>jsPDF + jspdf-autotable</td><td>analysis-{timestamp}.pdf</td></tr>
+    <tr><td>PNG</td><td>Download base64</td><td>detection-{timestamp}.png</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">14 DEPENDENCIES &amp; LICENSES</h2>
+<table>
+  <thead><tr><th>PACKAGE</th><th>LICENSE</th></tr></thead>
+  <tbody>
+    <tr><td>react, react-dom</td><td>MIT</td></tr>
+    <tr><td>vite</td><td>MIT</td></tr>
+    <tr><td>express</td><td>MIT</td></tr>
+    <tr><td>fastapi, uvicorn</td><td>MIT</td></tr>
+    <tr><td>pytorch</td><td>BSD</td></tr>
+    <tr><td>jspdf</td><td>MIT</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">15 FUTURE ROADMAP</h2>
+<table>
+  <thead><tr><th>PHASE</th><th>FEATURE</th><th>PRIORITY</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Grad-CAM visualization</td><td>MEDIUM</td></tr>
+    <tr><td>1</td><td>Real training metrics in Dashboard</td><td>MEDIUM</td></tr>
+    <tr><td>2</td><td>Database-backed history</td><td>LOW</td></tr>
+    <tr><td>2</td><td>User accounts</td><td>LOW</td></tr>
+  </tbody>
+</table>
+
+<h2 class="page-break">16 SUPPORT &amp; CONTACT</h2>
+<p>Documentation prepared for the Satellite Intelligence Platform. Configure support channels as needed for your deployment.</p>
+
+<div class="footer" style="margin-top: 3rem; text-align: center;">
+  <strong>SATELLITE INTELLIGENCE PLATFORM — DOCUMENTATION v1.0</strong><br/>
+  PREPARED: MARCH 2025
+</div>
+
+</body>
+</html>
